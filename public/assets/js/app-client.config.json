@@ -1,0 +1,66 @@
+{
+  "socketServer": {
+    "url": "localhost",
+    "port": "3100",
+    "reconnection": true,
+    "reconnectionDelay": 3000,
+    "reconnectionAttempts": 10
+  },
+  "client": {
+    "statuses": {
+      "REQUEST": "request",
+      "GAME": "game",
+      "NONE": "none"
+    },
+    "template": {
+      "DEFAULT": "default"
+    }
+  },
+  "events": {
+    "game": {
+      "GET_GAME_DATA": "getGameData"
+      , "TURN_DATA": "turnData"
+      , "PLAYER_CAN_NOT_DO_THAT": "playerCanNotDoThat"
+
+      , "THROW_DICES": "throwDices"
+      , "SKIP_MAIN_PHASE": "skipMainPhase"
+
+      , "TELEPORT_TO_TILE_BY_ID": "teleportToTileById"
+      , "IGNORE_TELEPORT": "ignoreTeleport"
+
+      , "LEAVE_JAIL_THROW_DICES": "leaveJailThrowDice"
+      , "LEAVE_JAIL_PAYMENT": "leaveJailPayment"
+
+      , "BUY_TILE": "buyTile"
+      , "MORTGAGE_PROPERTY": "mortgageProperty"
+      , "REDEEM_PROPERTY": "redeemProperty"
+      , "CANCEL_BUY_TILE": "cancelBuyTile"
+      , "BET_AUCTION_TILE": "betAuctionTile"
+      , "CANCEL_BET_AUCTION_TILE": "cancelBetAuctionTile"
+
+      , "BUILD_BRANCH": "buildBranch"
+      , "SELL_BRANCH": "sellBranch"
+      , "PLAYER_SEND_MESSAGE": "playerSendMessage"
+    },
+    "request": {
+      "USER_START_REQUEST": "userStartRequest",
+      "USER_CANCEL_REQUEST": "userCancelRequest",
+      "USER_ADDED_TO_REQUEST": "userAddedToRequest",
+      "USER_CANCELLED_REQUEST": "userCancelledRequest"
+    },
+    "chat": {
+      "GLOBAL_CHAT_MESSAGE": "globalChatMessage",
+      "GLOBAL_CHAT_SEND": "globalChatSend"
+    },
+    "user": {
+      "USER_SEND_AUTH_DATA": "userAuth",
+      "USER_DISCONNECTED": "disconnect",
+      "USER_RECONNECT": "reconnect",
+      "SERVER_REQUEST_USER_AUTH_DATA": "getAuth",
+      "USER_GOT_NEW_STATUS": "status",
+      "AUTH_ON_SERVER_OK": "authOK",
+      "AUTH_ON_SERVER_FAIL": "authFail",
+      "USER_DOUBLE_CONNECTION": "doubleConnection"
+    }
+  }
+}

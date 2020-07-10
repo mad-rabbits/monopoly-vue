@@ -1,0 +1,18 @@
+// updated grid
+@import './grid';
+
+// fonts
+@import './fonts';
+
+// style variables
+@import './vars';
+@import './typo';
+
+//main styles
+@import './global';
+@import './parts/header';
+@import './game';
+@import './game-player';
+
+//theme
+@import './dark';

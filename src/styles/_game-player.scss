@@ -1,0 +1,17 @@
+.player {
+    position: relative;
+    padding: 1px 1px 1px 24px;
+    &__wrap {
+        border-radius: 2px;
+        background-color: $bg2;
+        padding: 16px 16px 16px 8px;
+        display: flex;
+    }
+    &__avatar {
+        width: 68px;
+        height: 68px;
+        border-radius: 50%;
+        background-color: red;
+        margin-right: 16px;
+    }
+}

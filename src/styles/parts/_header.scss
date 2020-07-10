@@ -1,0 +1,38 @@
+.header {
+    background-color: $bg2;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        height: 80px;
+        svg path {
+            fill: #4F5660;
+        }
+    }
+
+    &__menu {
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__nav {
+        a {
+            margin-left: 80px;
+        }
+    }
+
+    &__theme-toggle {
+        .custom-checkbox__toggler {
+            opacity: 1;
+            svg.dark {
+                display: none;
+            }
+        }
+        input:checked + .custom-checkbox__toggler {
+            svg {display: none;}
+            svg.dark {display: block;}
+        }
+    }
+}

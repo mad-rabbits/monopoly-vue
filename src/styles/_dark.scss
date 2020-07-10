@@ -1,0 +1,27 @@
+$bg: #2E3036;
+$bg2: #37393F;
+$border: #303239;
+
+// other - fonts
+$text: #DCDDDE;
+$text2: #B9BBBE;
+$text3: #8E9297;
+
+$shadowPopup: 0px 4px 10px rgba(48, 46, 54, 0.9);
+
+#wrapper.theme__dark {
+    background-color: $bg;
+    color: $text;
+
+    .custom-checkbox {
+        background-color: $bg;
+    }
+    .header {
+        background-color: $bg2;
+        &__logo {
+            svg path {
+                fill: $text2;
+            }
+        }
+    }
+}

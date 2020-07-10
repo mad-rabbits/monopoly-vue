@@ -1,0 +1,382 @@
+#game-map {
+    padding: 20px;
+    font-family: $font;
+    max-height: 100vh;
+    position: relative;
+
+    &__wrap {
+        position: relative;
+    }
+
+    .square {
+        display: block;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    &__log {
+        position: absolute;
+        top: 15.35%;
+        right: 15.35%;
+        left: 15.35%;
+        bottom: 15.35%;
+        z-index: 20;
+        overflow: auto;
+        margin: 24px 24px 88px;
+        border: $bs1 rgba(106, 116, 128, 0.5);
+        border-radius: 2px;
+        padding: 13px 15px;
+    }
+
+    &__chat {
+        position: absolute;
+        right: 15.35%;
+        left: 15.35%;
+        bottom: 15.35%;
+        height: 64px;
+        z-index: 20;
+        overflow: auto;
+        margin: 24px;
+        border: $bs1 rgba(106, 116, 128, 0.5);
+        border-radius: 2px;
+        padding: 13px 65px 13px 15px; 
+        form {
+            width: 100%;
+            position: relative;
+        }
+        input {
+            width: 100%;
+            height: 36px;
+            background-color: transparent;
+            border: $bs1 $border;
+            border-radius: 2px;
+            outline: none;
+        } 
+        .send {
+            &__ico {
+                position: absolute;
+                top: 50%;
+                margin-top: -10px;
+                right: 16px;
+                width: 20px;
+                height: 20px;
+                display: block;
+                z-index: 50;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__fields {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        .field {
+            position: absolute;
+            height: 15.35%;
+            width: 7.7%;
+            border: $bs1 rgba(106, 116, 128, 0.5);
+            cursor: pointer;
+
+            &__bg,
+            &__owner {
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 25;
+            }
+
+            &__bg {
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 80%;
+                height: 80%;
+                top: 10%;
+                left: 10%;
+                &.corner_start {
+                    background-image: url(/assets/images/board/start.svg);
+                }
+                &.corner_jail {
+                    background-image: url(/assets/images/board/jail.svg);
+                    border-radius: 0 4px 0 0;
+                }
+                &.corner_portal {
+                    background-image: url(/assets/images/board/ufo.svg);
+                }
+                &.corner_policeman {
+                    background-image: url(/assets/images/board/police.svg);
+                }
+                &.lottery_lucky_lottery {
+                    background-image: url(/assets/images/board/lottery.svg);
+                    width: 60%;
+                    height: 60%;
+                    top: 20%;
+                    left: 20%;
+                }
+                &.lottery_bank_tax {
+                    background-image: url(/assets/images/board/tax.svg);
+                }
+                &.lottery_luxury_tax {
+                    background-image: url(/assets/images/board/tax2.svg);
+                }
+            }
+
+            &__owner {
+                z-index: 20;
+                opacity: 0.5;
+            }
+
+            &__price {
+                position: absolute;
+                top: -20px;
+                left: 0;
+                width: 100%;
+                font-size: 14px;
+                font-weight: 500;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span {
+                    line-height: 20px;
+                    font-weight: 500;
+                }
+            }
+
+            &__wrap {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            &__tooltip {
+                top: 100%;
+                left: 0;
+                z-index: 500;
+                position: absolute;
+                background-color: $bg;
+                border-radius: $cornerRadius;
+                box-shadow: $shadowPopup;
+                width: 259px;
+                max-height: 500%;
+                overflow: hidden;
+                .tooltip {
+                    &__heading {
+                        padding: 11px 14px;
+                        color: #fff;
+                        font-size: 12px;
+                        line-height: 1.35;
+                        display: flex;
+                        align-items: center;
+                        &__icon {
+                            display: block;
+                            width: 48px;
+                            height: 48px;
+                            background-color: #fff;
+                            margin-right: 16px;
+                            border-radius: 50%;
+                        }
+                        &__name {
+                            font-weight: 500;
+                            font-size: 16px;
+                        }
+                    }
+                    &__text {
+                        padding: 14px;
+                        font-size: 16px;
+                        line-height: 1.6;
+                    }
+                    &__rent {
+                        border-bottom: $bs1 $border;
+                        &__icon {
+                            width: 24px;
+                            height: 20px;
+                            background: url(/assets/images/board/rent.svg);
+                            background-size: auto 100%;
+                        }
+                        &-2 {width: 48px;}
+                        &-3 {width: 72px;}
+                        &-4 {width: 96px;}
+                        &-5 {width: 120px;}
+                        &-6 {width: 144px;}
+                    }
+                    &__row {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 10px;
+                        &:last-child .tooltip__rent__icon {
+                            background: url(/assets/images/board/rent_max.svg);
+                            background-size: auto 100%;
+                            width: 20px;
+                        }
+                    }
+                }
+            }
+    
+            &__corner {
+                width: 15.35%;
+                height: 15.35%;
+                border: 0;
+                .field__bg {
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+            &__top,
+            &__bottom {
+                border-right: 0;
+                .field__bg {
+                    width: 160%;
+                    height: 40%;
+                    transform: translate(-25%, 50%) rotate(90deg);
+                    &.lottery_lucky_lottery {
+                        width: 130%;
+                        height: 30%;
+                    }
+                }
+                .token {
+                    flex-direction: column;
+                }
+            }
+
+            &__right,
+            &__left {
+                border-bottom: 0;
+                .field__price {
+                    width: 20px;
+                    height: 100%;
+                    top: 0;
+                    left: 100%;
+                    span{
+                        display: block;
+                        transform: rotate(-90deg);
+                    }
+                }
+                .field__tooltip {
+                    top: 0;
+                    right: 100%;
+                    left: auto;
+                }
+            }
+
+            &__bottom {
+                .field__price {
+                    top: 100%;
+                }
+                .field__tooltip {
+                    top: auto;
+                    bottom: 100%;
+                }
+            }
+            &__left {
+                .field__price {
+                    left: -20px;
+                }
+                .field__tooltip {
+                    top: 0;
+                    left: 100%;
+                    right: auto;
+                }
+            }
+
+            &:first-child {
+                left: 0;
+                top: 0;
+            }
+
+            &:nth-child(11) {
+                right: 0;
+                top: 0;
+            }
+            &:nth-child(21) {
+                right: 0;
+                bottom: 0;
+            }
+            &:nth-child(31) {
+                left: 0;
+                bottom: 0;
+            }
+        }
+        // top row
+        @for $i from 0 through 8 {
+            .field:nth-child(#{$i+2}) {
+              $pos: percentage((15.35+7.7*$i)/100);  
+              left: #{$pos};
+            }
+        }
+        // right row
+        @for $i from 0 through 8 {
+            .field:nth-child(#{$i+12}) {
+              $pos: percentage((15.35+7.7*$i)/100);  
+              top: #{$pos};
+              right: 0;
+              width: 15.35%;
+              height: 7.7%;
+            }
+        }
+        // bottom row
+        @for $i from 0 through 8 {
+            .field:nth-child(#{$i+22}) {
+              $pos: percentage((15.35+7.7*$i)/100);  
+              bottom: 0;
+              right: #{$pos};
+            }
+        }
+        // right row
+        @for $i from 0 through 8 {
+            .field:nth-child(#{$i+32}) {
+              $pos: percentage((15.35+7.7*$i)/100);  
+              bottom: #{$pos};
+              left: 0;
+              width: 15.35%;
+              height: 7.7%;
+            }
+        }
+    }
+
+    .token {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        z-index: 50;
+        &__wrap {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 4px;
+        }
+        &__avatar {
+            width: 28px;
+            height: 28px;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+}

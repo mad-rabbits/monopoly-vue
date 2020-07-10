@@ -1,0 +1,42 @@
+.custom-checkbox {
+    margin: 0;
+    border-radius: 13px;
+    width: 45px;
+    height: 26px;
+    background-color: $bg;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    &__toggler {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.2s ease;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        opacity: 0.6;
+        border: none;
+        background-color: $accMain;
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        display: block;
+        &:checked + .custom-checkbox__toggler {
+            left: 19px;
+            opacity: 1;
+        }
+    }
+}
